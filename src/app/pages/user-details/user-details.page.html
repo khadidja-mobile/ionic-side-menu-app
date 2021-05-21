@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>User Détails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title *ngIf="user">{{user.username}}</ion-title>
+
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate *ngIf="user">
+    <ion-item lines="full">
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input [(formControlName)]="user.username" type="text"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(formControlName)]="user.email" type="email"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input [(formControlName)]="user.password" type="text"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Modifier</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  
+</ion-content>
+

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-button [routerLink]="['/user-add']">Ajouter User</ion-button>
+ <!-- <ion-button color="" (click)="add()" ><ion-icon name="add"></ion-icon> Ajouter User</ion-button> -->
+
+  <ion-card *ngFor="let user of users">
+    <ion-item href="#" class="activated">
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-label>{{user.username}}</ion-label> 
+      <ion-button color="success" (click)="userDetails(user.id)"><ion-icon name="create-outline"></ion-icon></ion-button>
+      <!--<ion-button color="success" [routerLink]="['/user-details']"><ion-icon name="create-outline"></ion-icon></ion-button>-->
+      <ion-button color="danger" (click)="delete(user)" ><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </ion-item>
+  </ion-card>
+
+  <button mdc-button raised>Example</button>
+
+  <div class="mdc-touch-target-wrapper">
+    <button class="mdc-button mdc-button--touch">
+      <span class="mdc-button__ripple"></span>
+      <span class="mdc-button__label">My Accessible Button</span>
+      <span class="mdc-button__touch"></span>
+    </button>
+  </div>
+
+  <button class="mdc-button mdc-button--raised">
+    <span class="mdc-button__label">Contained Button</span>
+  </button>
+
+  <ion-row color="tertiary">
+    <ion-col size="3">
+      Id
+    </ion-col>
+    <ion-col size="3">
+      Prenom
+    </ion-col>
+    <ion-col size="3">
+      Email
+    </ion-col>
+    <ion-col size="3">
+      Mot de passe
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let user of users">
+    <ion-col size="3">
+      {{user.id}}
+    </ion-col>
+    <ion-col size="3">
+      {{user.username}}
+    </ion-col>
+    <ion-col size="3">
+      {{user.email}}
+    </ion-col>
+    <ion-col size="3">
+      <small>{{user.password}}</small>
+    </ion-col>
+  </ion-row>
+  <hr />
+</ion-content>
+
+
+<button type="submit" mdc-button raised style="width:100%">Ajouter User</button>
